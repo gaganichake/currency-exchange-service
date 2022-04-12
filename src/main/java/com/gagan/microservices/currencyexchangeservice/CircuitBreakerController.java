@@ -1,6 +1,7 @@
 package com.gagan.microservices.currencyexchangeservice;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,14 @@ public class CircuitBreakerController {
         ResponseEntity<String> forEntity = new RestTemplate().getForEntity("http://locahost:8080/non-working-app", String.class);
         return forEntity.getBody();
     }
+
+    @GetMapping("sample-api-demo-rate-limiter")
+    @RateLimiter(name = "sample-api")
+    public String sampleApiForRateLimiter() {
+        logger.info("Sample API call received - /sample-api-demo-rate-limiter");
+        return "A Hard Coded Response";
+    }
+
 
     public String aHardCodedFallbackMethod(Throwable throwable) {
         return "A Hard Coded Fallback Response";
