@@ -1,5 +1,6 @@
 package com.gagan.microservices.currencyexchangeservice;
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
@@ -38,6 +39,12 @@ public class CircuitBreakerController {
         return "A Hard Coded Response";
     }
 
+    @GetMapping("sample-api-demo-bulk-head")
+    @Bulkhead(name = "sample-api")
+    public String sampleApiForBulkhead() {
+        logger.info("Sample API call received - /sample-api-demo-bulk-head");
+        return "A Hard Coded Response";
+    }
 
     public String aHardCodedFallbackMethod(Throwable throwable) {
         return "A Hard Coded Fallback Response";
