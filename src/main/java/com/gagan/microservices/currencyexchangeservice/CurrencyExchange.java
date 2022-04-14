@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Entity
-public class CurrenyExchange {
+public class CurrencyExchange {
     @Id
     private Long id;
     @Column(name = "currency_from")
@@ -16,10 +16,10 @@ public class CurrenyExchange {
     private BigDecimal conversionMultiple;
     private String environment;
 
-    public CurrenyExchange() {
+    public CurrencyExchange() {
     }
 
-    public CurrenyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
+    public CurrencyExchange(Long id, String from, String to, BigDecimal conversionMultiple) {
         this.id = id;
         this.from = from;
         this.to = to;

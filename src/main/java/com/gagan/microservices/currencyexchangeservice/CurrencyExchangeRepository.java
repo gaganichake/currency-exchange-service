@@ -2,7 +2,7 @@ package com.gagan.microservices.currencyexchangeservice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CurrencyExchangeRepository extends JpaRepository<CurrenyExchange, Long> {
+public interface CurrencyExchangeRepository extends JpaRepository<CurrencyExchange, Long> {
 
-    CurrenyExchange findByFromAndTo(String from, String to);
+    CurrencyExchange findByFromAndTo(String from, String to);
 }
