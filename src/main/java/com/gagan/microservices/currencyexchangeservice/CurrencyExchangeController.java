@@ -29,7 +29,7 @@ public class CurrencyExchangeController {
         }
         String port = environment.getProperty("local.server.port");
         String host = environment.getProperty("HOSTNAME");// This will return the exact Pod name
-        String version = "v11";
+        String version = "v12";
 
         currencyExchange.setEnvironment(port + " " + version + " " + host);
 
